@@ -6,15 +6,17 @@ export default function CreateCharacter() {
     const colorScheme = useColorScheme();
     const containerThemeStyle = colorScheme === 'dark' ? styles.darkThemeContainer : styles.lightThemeContainer;
     const textThemeStyle = colorScheme === 'dark' ? styles.darkThemeText : styles.lightThemeText;
+    const borderThemeStyle = { borderColor: colorScheme === 'dark' ? "white" : "black" };
+    const placeholderTextColor = colorScheme === 'dark' ? "gray" : "darkgray";
     
     return (
         <SafeAreaView style={[styles.container, containerThemeStyle]}>
           <Text style={[textThemeStyle, {margin: 20}]}>Create a New Character</Text>
-          <TextInput style={[styles.input, textThemeStyle]} placeholder="Character Name" />
-          <TextInput style={[styles.input, textThemeStyle]} placeholder="Character Description" />
-          <TextInput style={[styles.input, textThemeStyle]} placeholder="Character Age" />
-          <TextInput style={[styles.input, textThemeStyle]} placeholder="Character Occupation" />
-          <TextInput style={[styles.input, textThemeStyle]} placeholder="Character Location" />
+          <TextInput style={[styles.input, textThemeStyle, borderThemeStyle]} placeholder="Character Name" placeholderTextColor={placeholderTextColor}/>
+          <TextInput style={[styles.input, textThemeStyle, borderThemeStyle]} placeholder="Character Description" placeholderTextColor={placeholderTextColor} />
+          <TextInput style={[styles.input, textThemeStyle, borderThemeStyle]} placeholder="Character Age" placeholderTextColor={placeholderTextColor} />
+          <TextInput style={[styles.input, textThemeStyle, borderThemeStyle]} placeholder="Character Occupation" placeholderTextColor={placeholderTextColor} />
+          <TextInput style={[styles.input, textThemeStyle, borderThemeStyle]} placeholder="Character Location" placeholderTextColor={placeholderTextColor} />
           <TouchableOpacity style={[styles.button]} onPress={() => router.push("/")}>
               <Text style={styles.buttonTextColor}>Save Character</Text>
           </TouchableOpacity>

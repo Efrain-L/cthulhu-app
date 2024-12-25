@@ -31,7 +31,7 @@ export default function Index() {
 
   const renderItem = ({item}: {item: ItemData}) => {
     return (
-      <CharacterItem title={item.name} textStyle={styles.buttonTextColor} />
+      <CharacterItem title={item.name} textStyle={textThemeStyle} />
     );
   };
 
@@ -45,7 +45,7 @@ export default function Index() {
         itemLayoutAnimation={LinearTransition}
       />
       <TouchableOpacity style={[styles.newCharButton]} onPress={() => router.push("/create-character")}>
-        <Text style={styles.buttonTextColor}>Create New Character</Text>
+        <Text style={textThemeStyle}>Create New Character</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -76,8 +76,5 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     justifyContent: "center",
     alignItems: "center",
-  }, 
-  buttonTextColor: {
-    color: "white",
-  }
+  },
 });
