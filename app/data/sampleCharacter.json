@@ -1,0 +1,149 @@
+{
+    "investigator": {
+      "name": "Elizabeth Carter",
+      "occupation": "Journalist",
+      "age": 32,
+      "pronouns": "She/Her",
+      "residence": "New York City",
+      "birthplace": "Boston, MA",
+      "imagePath": "path/to/elizabeth_carter.png"
+    },
+    "characteristics": {
+      "STR": 50,
+      "CON": 60,
+      "SIZ": 55,
+      "DEX": 70,
+      "APP": 65,
+      "INT": 75,
+      "POW": 55,
+      "EDU": 80
+    },
+    "attributes": {
+      "hitPoints": 11,
+      "maxHitPoints": 11,
+      "magicPoints": 11,
+      "maxMagicPoints": 11,
+      "luck": 45,
+      "startingLuck": 45,
+      "sanity": 55,
+      "startingSanity": 55,
+      "maxSanity": 99,
+      "tempInsanity": false,
+      "indefInsanity": false,
+      "majorWound": false,
+      "unconscious": false,
+      "dying": false,
+      "move": 8,
+      "build": 0,
+      "damageBonus": "0"
+    },
+    "skills": {
+      "accounting": 5,
+      "anthropology": 1,
+      "appraise": 10,
+      "archaeology": 15,
+      "artCraft": {
+        "default": 5,
+        "photography": 50
+      },
+      "charm": 30,
+      "climb": 20,
+      "creditRating": 40,
+      "cthulhuMythos": 0,
+      "disguise": 25,
+      "dodge": 35,
+      "driveAuto": 20,
+      "electricalRepair": 10,
+      "fastTalk": 50,
+      "fighting": {
+        "brawl": 40
+      },
+      "firearms": {
+        "handgun": 50,
+        "rifleShotgun": 25
+      },
+      "firstAid": 30,
+      "history": 40,
+      "intimidate": 20,
+      "jump": 25,
+      "languageOther": {
+        "default": 1,
+        "french": 30
+      },
+      "languageOwn": 75,
+      "law": 10,
+      "libraryUse": 50,
+      "listen": 40,
+      "locksmith": 15,
+      "mechanicalRepair": 20,
+      "medicine": 10,
+      "naturalWorld": 25,
+      "navigate": 15,
+      "occult": 20,
+      "persuade": 45,
+      "pilot": {
+        "default": 1,
+        "airplane": 25
+      },
+      "psychoanalysis": 5,
+      "psychology": 40,
+      "ride": 10,
+      "science": {
+        "default": 1,
+        "chemistry": 30
+      },
+      "sleightOfHand": 10,
+      "spotHidden": 50,
+      "stealth": 35,
+      "survival": {
+        "default": 10,
+        "desert": 20
+      },
+      "swim": 25,
+      "throw": 15,
+      "track": 20
+    },
+    "combat": [
+      {
+        "weapon": "Brawl",
+        "skill": 40,
+        "damage": "1d3+db",
+        "numAttacks": 1
+      },
+      {
+        "weapon": "Handgun",
+        "skill": 50,
+        "damage": "1d10",
+        "numAttacks": 1,
+        "range": 15,
+        "ammo": 6,
+        "malfunction": 100
+      }
+    ],
+    "backstory": {
+      "personalDescription": "A determined journalist with a knack for uncovering hidden truths.",
+      "ideologyBeliefs": "The truth must always come to light.",
+      "significantPeople": "Her late mentor, William Kent.",
+      "meaningfulLocations": "The Boston Globe's newsroom.",
+      "treasuredPossessions": "A worn notebook filled with her notes and sketches.",
+      "traits": "Curious, tenacious, skeptical.",
+      "injuriesScars": "A faint scar on her left arm from a dangerous assignment.",
+      "phobiasManias": "Fear of drowning.",
+      "arcaneTomesSpells": "None yet.",
+      "encountersWithStrangeEntities": "An unexplained encounter with a shadowy figure in the woods outside Arkham."
+    },
+    "gearPossessions": [
+      "Notebook",
+      "Camera",
+      "Revolver",
+      "Flashlight",
+      "Press Badge"
+    ],
+    "wealth": {
+      "spendingLevel": 20.0,
+      "cash": 30.0,
+      "monetaryAssets": 150.0,
+      "assets": "Small apartment in New York City."
+    }
+  }
+  
