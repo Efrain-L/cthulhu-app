@@ -2,7 +2,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, useColorScheme } from "r
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
 
-export default function CreateCharacter() {
+export default function CreateInvestigator() {
     const colorScheme = useColorScheme();
     const containerThemeStyle = colorScheme === 'dark' ? styles.darkThemeContainer : styles.lightThemeContainer;
     const textThemeStyle = colorScheme === 'dark' ? styles.darkThemeText : styles.lightThemeText;

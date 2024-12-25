@@ -44,7 +44,7 @@ export default function Index() {
         keyExtractor={(item) => item.id}
         itemLayoutAnimation={LinearTransition}
       />
-      <TouchableOpacity style={[styles.newCharButton]} onPress={() => router.push("/create-character")}>
+      <TouchableOpacity style={[styles.newCharButton]} onPress={() => router.push("/create-investigator")}>
         <Text style={textThemeStyle}>Create New Character</Text>
       </TouchableOpacity>
     </SafeAreaView>
