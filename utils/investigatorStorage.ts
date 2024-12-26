@@ -76,6 +76,7 @@ export const loadAllInvestigators = async (): Promise<Investigator[]> => {
     // for testing purposes, load a sample investigator
     const sampleInvestigator = await loadSampleInvestigator();
     investigators.push(sampleInvestigator);
+    investigators.push(sampleInvestigator);
 
     return investigators;
   } catch (error) {

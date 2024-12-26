@@ -24,7 +24,7 @@ export default function InvestigatorList(props: {investigators:  InvestigatorIte
 const renderItem = ({item}: {item: InvestigatorItem}) => {
     const name = item.investigator.details.name;
     const occupation = item.investigator.details.occupation;
-    const imagePath: any = item.investigator.details.imagePath;
+    const imagePath = item.investigator.details.imagePath;
     
     return (
         <InvestigatorListItem name={name} occupation={occupation} imagePath={imagePath} />

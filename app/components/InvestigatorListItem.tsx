@@ -32,13 +32,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     width: 300,
-    height: 150,
+    height: 130,
   },
   imageContainer: {
     borderWidth: 2,
     borderColor: "#00cc66", 
     borderRadius: 13, 
-    margin: 10,
+    marginLeft: 10,
+    marginRight: 12,
   },
   image: {
     width: 100,

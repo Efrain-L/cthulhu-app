@@ -6,7 +6,7 @@ export interface Investigator {
       pronouns: string;
       residence: string;
       birthplace: string;
-      imagePath: string;
+      imagePath: any;
     };
     characteristics: {
       STR: number;
