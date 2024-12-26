@@ -3,7 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
 
-import ThemedText from "@/app/components/ThemedText";
+import ThemedText from "@/app/components/ui/ThemedText";
 import InvestigatorList from "@/app/components/InvestigatorList";
 import { loadAllInvestigators } from "@/utils/investigatorStorage";
 import { Investigator } from "@/types/Investigator";
@@ -13,7 +13,7 @@ type InvestigatorItem = {
   investigator: Investigator;
 };
 
-export default async function Index() {
+export default function Index() {
   const [investigators, setInvestigators] = useState<InvestigatorItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -38,7 +38,7 @@ export default async function Index() {
       </SafeAreaView>
     );
   }
-  
+
   return (
     <SafeAreaView style={[styles.container, containerThemeStyle]}>
       <ThemedText style={{margin: 20}}>Welcome to the Cthulhu Character Creator App!</ThemedText>

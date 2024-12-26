@@ -49,8 +49,9 @@ export const loadInvestigator = async (fileName: string): Promise<Investigator> 
 export const loadSampleInvestigator = async (): Promise<Investigator> => {
   try {
     const sampleInvestigator = require('@/assets/investigators/sampleInvestigator.json');
+    sampleInvestigator.details.imagePath = require('@/assets/investigators/sampleInvestigator.png');
 
-    return JSON.parse(sampleInvestigator);
+    return sampleInvestigator;
   } catch (error) {
     console.error('Error loading sample investigator:', error);
     throw error;
