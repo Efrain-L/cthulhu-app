@@ -1,7 +1,7 @@
 import { StyleSheet, TouchableOpacity, Image} from "react-native";
 
-import ThemedText from "./ui/ThemedText";
-import ThemedView from "./ui/ThemedView";
+import ThemedText from "@/app/components/ui/ThemedText";
+import ThemedView from "@/app/components/ui/ThemedView";
 
 type InvestigatorItemProps = {
     name: string;
@@ -12,8 +12,8 @@ type InvestigatorItemProps = {
 export default function InvestigatorListItem({ name, occupation, imagePath }: InvestigatorItemProps) {
     return( 
       <TouchableOpacity style={styles.item}>
-        {/* There may be a compiler error here, but running with expo start still works /> */}
         <ThemedView style={styles.imageContainer}>
+            {/* There may be a compiler error here, but running with expo start still works /> */}
             <Image source={imagePath} style={styles.image} />
         </ThemedView>
         <ThemedView style={{flex: 1}}>
@@ -31,12 +31,10 @@ const styles = StyleSheet.create({
   item: {
     flexDirection: "row",
     alignItems: "center",
-    borderRadius: 10,
     width: 300,
     height: 150,
   },
   imageContainer: {
-    padding: 0, 
     borderWidth: 2,
     borderColor: "#00cc66", 
     borderRadius: 13, 

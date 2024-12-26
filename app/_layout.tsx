@@ -12,7 +12,7 @@ export default function RootLayout() {
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="create-investigator" options={{ headerShown: false }} />
       </Stack>
-      <StatusBar style="auto" />
+      <StatusBar style="auto" backgroundColor={colorScheme === 'dark' ? '#1a2236' : '#bec8d2'} />
     </ThemeProvider>
   );
 }

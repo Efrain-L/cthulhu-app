@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import Animated, { LinearTransition } from "react-native-reanimated";
 
 import { Investigator } from "@/types/Investigator";
-import InvestigatorListItem from "./InvestigatorListItem";
+import InvestigatorListItem from "@/app/components/InvestigatorListItem";
 
 type InvestigatorItem = {
     id: string;

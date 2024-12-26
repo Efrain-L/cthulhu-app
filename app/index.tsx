@@ -7,6 +7,7 @@ import ThemedText from "@/app/components/ui/ThemedText";
 import InvestigatorList from "@/app/components/InvestigatorList";
 import { loadAllInvestigators } from "@/utils/investigatorStorage";
 import { Investigator } from "@/types/Investigator";
+import CreateInvestigatorModal from "./CreateInvestigatorModal";
 
 type InvestigatorItem = {
   id: string;
@@ -16,6 +17,7 @@ type InvestigatorItem = {
 export default function Index() {
   const [investigators, setInvestigators] = useState<InvestigatorItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const colorScheme = useColorScheme();
   const containerThemeStyle = colorScheme === 'dark' ? styles.darkThemeContainer : styles.lightThemeContainer;
@@ -41,11 +43,12 @@ export default function Index() {
 
   return (
     <SafeAreaView style={[styles.container, containerThemeStyle]}>
-      <ThemedText style={{margin: 20}}>Welcome to the Cthulhu Character Creator App!</ThemedText>
+      <ThemedText style={{marginTop: 20}}>Welcome to the Cthulhu Character Creator App!</ThemedText>
       <InvestigatorList investigators={investigators} />      
-      <TouchableOpacity style={[styles.newCharButton]} onPress={() => router.push("/create-investigator")}>
-        <ThemedText>Create New Character</ThemedText>
+      <TouchableOpacity style={[styles.newCharButton]} onPress={() => setModalVisible(true)}>
+        <ThemedText>Create New Investigator</ThemedText>
       </TouchableOpacity>
+      <CreateInvestigatorModal visible={modalVisible} onClose={() => setModalVisible(false)} />
     </SafeAreaView>
   );
 }
