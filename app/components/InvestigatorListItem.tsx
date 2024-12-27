@@ -7,20 +7,21 @@ type InvestigatorItemProps = {
     name: string;
     occupation: string;
     imagePath: any;
+    onPress: () => void;
 }
 
-export default function InvestigatorListItem({ name, occupation, imagePath }: InvestigatorItemProps) {
+export default function InvestigatorListItem({ name, occupation, imagePath, onPress}: InvestigatorItemProps) {
     return( 
-      <TouchableOpacity style={styles.item}>
+      <TouchableOpacity style={styles.item} onPress={onPress}>
         <ThemedView style={styles.imageContainer}>
             {/* There may be a compiler error here, but running with expo start still works /> */}
             <Image source={imagePath} style={styles.image} />
         </ThemedView>
         <ThemedView style={{flex: 1}}>
-            <ThemedText>Name:</ThemedText>
+            <ThemedText style={{fontWeight: 'bold'}}>Investigator's Name:</ThemedText>
             <ThemedText>{name}</ThemedText>
             <ThemedText></ThemedText>
-            <ThemedText>Occupation:</ThemedText>
+            <ThemedText style={{fontWeight: 'bold'}}>Investigator's Occupation:</ThemedText>
             <ThemedText>{occupation}</ThemedText>
         </ThemedView>
       </TouchableOpacity>
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
   item: {
     flexDirection: "row",
     alignItems: "center",
-    width: 300,
+    width: 400,
     height: 130,
   },
   imageContainer: {

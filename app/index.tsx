@@ -7,7 +7,7 @@ import ThemedText from "@/app/components/ui/ThemedText";
 import InvestigatorList from "@/app/components/InvestigatorList";
 import { loadAllInvestigators } from "@/utils/investigatorStorage";
 import { Investigator } from "@/types/Investigator";
-import CreateInvestigatorModal from "./CreateInvestigatorModal";
+import CreateInvestigatorModal from "./(creation)/CreateInvestigatorModal";
 
 type InvestigatorItem = {
   id: string;
@@ -43,7 +43,7 @@ export default function Index() {
 
   return (
     <SafeAreaView style={[styles.container, containerThemeStyle]}>
-      <ThemedText style={{marginTop: 20}}>Welcome to the Cthulhu Character Creator App!</ThemedText>
+      <ThemedText style={{marginTop: 20, fontSize: 27, textAlign: "center"}}>Welcome to the Cthulhu Character Creator App!</ThemedText>
       <InvestigatorList investigators={investigators} />      
       <TouchableOpacity style={[styles.newCharButton]} onPress={() => setModalVisible(true)}>
         <ThemedText>Create New Investigator</ThemedText>
