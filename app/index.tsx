@@ -3,8 +3,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
 
-import ThemedText from "@/app/components/ui/ThemedText";
-import InvestigatorList from "@/app/components/InvestigatorList";
+import ThemedText from "@/components/ui/ThemedText";
+import InvestigatorList from "@/components/InvestigatorList";
 import { loadAllInvestigators } from "@/utils/investigatorStorage";
 import { Investigator } from "@/types/Investigator";
 import CreateInvestigatorModal from "./creation/CreateInvestigatorModal";

@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from "expo-router";
 import { Tabs } from "expo-router/tabs";
-import InvestigatorProvider from "../contexts/InvestigatorContext";
+import InvestigatorProvider from "../../../contexts/InvestigatorContext";
 
 export default function DetailsTabLayout() {
   // local params

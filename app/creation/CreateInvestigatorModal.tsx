@@ -1,7 +1,7 @@
 import { Modal, StyleSheet, TouchableOpacity } from 'react-native';
-import ThemedText from "@/app/components/ui/ThemedText";
-import ThemedView from '@/app/components/ui/ThemedView';
-import ThemedTextInput from '../components/ui/ThemedTextInput';
+import ThemedText from "@/components/ui/ThemedText";
+import ThemedView from '@/components/ui/ThemedView';
+import ThemedTextInput from '@/components/ui/ThemedTextInput';
 
 type CreateInvestigatorModalProps = {
     visible: boolean;

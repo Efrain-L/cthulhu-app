@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
-import ThemedView from '@/app/components/ui/ThemedView';
-import ThemedText from '@/app/components/ui/ThemedText';
+import ThemedView from '@/components/ui/ThemedView';
+import ThemedText from '@/components/ui/ThemedText';
 
 type StatsProps = {
     stats: {

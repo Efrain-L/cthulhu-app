@@ -1,6 +1,6 @@
 import { StyleSheet, ScrollView, View } from 'react-native';
-import ThemedView from '@/app/components/ui/ThemedView';
-import ThemedText from '@/app/components/ui/ThemedText';
+import ThemedView from '@/components/ui/ThemedView';
+import ThemedText from '@/components/ui/ThemedText';
 import { Investigator } from '@/types/Investigator';
 
 export default function SkillList({ investigator }: { investigator: Investigator }) {

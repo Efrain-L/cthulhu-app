@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { InvestigatorContext } from '@/app/details/contexts/InvestigatorContext';
+import { InvestigatorContext } from '@/contexts/InvestigatorContext';
 
 export const useInvestigator = () => {
     const context = useContext(InvestigatorContext);

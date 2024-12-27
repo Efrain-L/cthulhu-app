@@ -1,8 +1,8 @@
-import ThemedSafeAreaView from '@/app/components/ui/ThemedSafeAreaView';
-import ThemedText from '@/app/components/ui/ThemedText';
+import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView';
+import ThemedText from '@/components/ui/ThemedText';
 import React from 'react';
 import { StyleSheet, Image } from 'react-native';
-import { useInvestigator } from '../hooks/useInvestigator';
+import { useInvestigator } from '../../../hooks/useInvestigator';
 
 export default function InvestigatorBio() {
     const investigator = useInvestigator();

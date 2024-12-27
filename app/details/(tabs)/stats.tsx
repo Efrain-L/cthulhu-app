@@ -1,10 +1,10 @@
-import ThemedSafeAreaView from '@/app/components/ui/ThemedSafeAreaView';
-import ThemedText from '@/app/components/ui/ThemedText';
+import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView';
+import ThemedText from '@/components/ui/ThemedText';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { useInvestigator } from '../hooks/useInvestigator';
-import StatsBar from '../components/StatsBar';
-import SkillList from '../components/SkillList';
+import { useInvestigator } from '../../../hooks/useInvestigator';
+import StatsBar from '../../../components/StatsBar';
+import SkillList from '../../../components/SkillList';
 
 export default function InvestigatorStats() {
     const investigator = useInvestigator();
