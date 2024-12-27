@@ -11,7 +11,7 @@ export default function RootLayout() {
       <StatusBar style="auto" backgroundColor={colorScheme === 'dark' ? '#1a2236' : '#bec8d2'} />
       <Stack screenOptions={{ headerShown: false  }}>
         <Stack.Screen name="index" />
-        <Stack.Screen name="details" options={{presentation: 'containedTransparentModal'}}/>
+        <Stack.Screen name="details" options={{presentation: 'containedTransparentModal', animation: 'slide_from_left'}}/>
       </Stack>
     </ThemeProvider>
   );

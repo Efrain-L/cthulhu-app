@@ -10,7 +10,7 @@ export default function DetailsTabLayout() {
 
   return (
     <InvestigatorProvider investigator={investigator}>
-      <Tabs screenOptions={{ headerShown: false }}>
+      <Tabs screenOptions={{ headerShown: false, animation: 'shift' }}>
             <Tabs.Screen name="index" options={{ title: 'Bio' }}/>
             <Tabs.Screen name="stats" options={{ title: 'Stats' }}/>
       </Tabs>
