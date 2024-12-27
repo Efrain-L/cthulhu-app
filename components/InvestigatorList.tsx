@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import Animated, { LinearTransition } from "react-native-reanimated";
 
 import { Investigator } from "@/types/Investigator";
-import InvestigatorListItem from "@/app/components/InvestigatorListItem";
+import InvestigatorListItem from "@/components/InvestigatorListItem";
 import { useRouter } from "expo-router";
 
 type InvestigatorItem = {

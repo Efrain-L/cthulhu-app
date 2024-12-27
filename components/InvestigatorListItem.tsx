@@ -1,7 +1,7 @@
 import { StyleSheet, TouchableOpacity, Image} from "react-native";
 
-import ThemedText from "@/app/components/ui/ThemedText";
-import ThemedView from "@/app/components/ui/ThemedView";
+import ThemedText from "@/components/ui/ThemedText";
+import ThemedView from "@/components/ui/ThemedView";
 
 type InvestigatorItemProps = {
     name: string;
