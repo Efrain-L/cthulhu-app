@@ -3,6 +3,7 @@ import ThemedText from '@/components/ui/ThemedText';
 import React from 'react';
 import { StyleSheet, Image } from 'react-native';
 import { useInvestigator } from '../../../hooks/useInvestigator';
+import ThemedView from '@/components/ui/ThemedView';
 
 export default function InvestigatorBio() {
     const investigator = useInvestigator();
@@ -24,8 +25,8 @@ export default function InvestigatorBio() {
     const imagePath = investigator.details.imagePath;
 
     return (
-        <ThemedSafeAreaView style={styles.container}>
-            <ThemedText style={{marginTop: 20}}>Investigator Bio</ThemedText>
+        <ThemedView style={styles.container}>
+            <ThemedText>Investigator Bio</ThemedText>
             <Image source={imagePath} style={styles.image} />
             <ThemedText>{name}</ThemedText>
             <ThemedText>{pronouns}</ThemedText>
@@ -33,7 +34,7 @@ export default function InvestigatorBio() {
             <ThemedText>{age}</ThemedText>
             <ThemedText>{residence}</ThemedText>
             <ThemedText>{birthplace}</ThemedText>
-        </ThemedSafeAreaView>
+        </ThemedView>
     );
 };
 

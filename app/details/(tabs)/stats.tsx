@@ -5,26 +5,27 @@ import { StyleSheet, View } from 'react-native';
 import { useInvestigator } from '../../../hooks/useInvestigator';
 import StatsBar from '../../../components/StatsBar';
 import SkillList from '../../../components/SkillList';
+import ThemedView from '@/components/ui/ThemedView';
 
 export default function InvestigatorStats() {
     const investigator = useInvestigator();
 
     if (!investigator) {
             return (
-                <ThemedSafeAreaView style={styles.container}>
+                <ThemedView style={styles.container}>
                     <ThemedText style={styles.text}>Investigator data was not imported correctly.</ThemedText>
-                </ThemedSafeAreaView>
+                </ThemedView>
             );
     }
 
     const stats = investigator.characteristics;
 
     return (
-        <ThemedSafeAreaView style={styles.container}>
+        <ThemedView style={styles.container}>
             <StatsBar stats={stats} />
             <ThemedText style={styles.text}>Investigator Skills</ThemedText>
             <SkillList investigator={investigator} />
-        </ThemedSafeAreaView>
+        </ThemedView>
     );
 };
 
