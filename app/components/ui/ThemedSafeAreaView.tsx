@@ -1,10 +1,13 @@
-import { SafeAreaView, type ViewProps, StyleSheet, useColorScheme } from 'react-native';
+import { StatusBar } from 'react-native';
+import { SafeAreaView, type ViewProps, StyleSheet, useColorScheme, Platform } from 'react-native';
 
 export default function ThemedSafeAreaView( { style, children }: ViewProps) {
     const colorScheme = useColorScheme();
     const backgroundStyle = colorScheme === 'dark' ? styles.darkView : styles.lightView;
+    const statusBarHeight = Platform.OS === 'android' ? StatusBar.currentHeight : 0;
+
     return (
-        <SafeAreaView style={[backgroundStyle, style]}>
+        <SafeAreaView style={[{ paddingTop: statusBarHeight }, backgroundStyle, style]}>
             {children}
         </SafeAreaView>
     );

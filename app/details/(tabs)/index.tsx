@@ -1,13 +1,11 @@
 import ThemedSafeAreaView from '@/app/components/ui/ThemedSafeAreaView';
 import ThemedText from '@/app/components/ui/ThemedText';
-import { useSearchParams } from 'expo-router/build/hooks';
 import React from 'react';
 import { StyleSheet, Image } from 'react-native';
+import { useInvestigator } from '../hooks/useInvestigator';
 
 export default function InvestigatorBio() {
-    const searchParams = useSearchParams();
-    const investigatorJSON = searchParams.get('investigator');
-    const investigator = investigatorJSON ? JSON.parse(investigatorJSON) : null;
+    const investigator = useInvestigator();
 
     if (!investigator) {
         return (
@@ -42,7 +40,6 @@ export default function InvestigatorBio() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
     },
     text: {

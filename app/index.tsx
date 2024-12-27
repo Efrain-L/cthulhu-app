@@ -7,7 +7,7 @@ import ThemedText from "@/app/components/ui/ThemedText";
 import InvestigatorList from "@/app/components/InvestigatorList";
 import { loadAllInvestigators } from "@/utils/investigatorStorage";
 import { Investigator } from "@/types/Investigator";
-import CreateInvestigatorModal from "./(creation)/CreateInvestigatorModal";
+import CreateInvestigatorModal from "./creation/CreateInvestigatorModal";
 
 type InvestigatorItem = {
   id: string;

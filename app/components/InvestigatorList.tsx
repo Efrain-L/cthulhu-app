@@ -20,7 +20,7 @@ export default function InvestigatorList(props: {investigators:  InvestigatorIte
     
         const onPress = () => {
             //console.log(`Investigator ${name} path: ${imagePath}`);
-            router.push({ pathname: "/details", params: { investigator: JSON.stringify(item.investigator) } });
+            router.push({ pathname: "/details", params: { investigatorJSON: JSON.stringify(item.investigator) } });
         }
         
         return (

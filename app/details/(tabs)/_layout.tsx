@@ -1,14 +1,19 @@
-import { Stack } from "expo-router/stack";
+import { useLocalSearchParams } from "expo-router";
 import { Tabs } from "expo-router/tabs";
-import { StatusBar } from "expo-status-bar";
-import { useColorScheme } from "react-native";
+import InvestigatorProvider from "../contexts/InvestigatorContext";
 
 export default function DetailsTabLayout() {
+  // local params
+  const { investigatorJSON } = useLocalSearchParams();
+  
+  const investigator = investigatorJSON ? JSON.parse(investigatorJSON as string) : null;
 
-    return (
+  return (
+    <InvestigatorProvider investigator={investigator}>
       <Tabs screenOptions={{ headerShown: false }}>
             <Tabs.Screen name="index" options={{ title: 'Bio' }}/>
             <Tabs.Screen name="stats" options={{ title: 'Stats' }}/>
       </Tabs>
-    );
+    </InvestigatorProvider>
+  );
 }
