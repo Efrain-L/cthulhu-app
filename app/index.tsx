@@ -1,6 +1,5 @@
 import { StyleSheet, TouchableOpacity, useColorScheme } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { router } from "expo-router";
 import { useEffect, useState } from "react";
 
 import ThemedText from "@/components/ui/ThemedText";
@@ -8,6 +7,7 @@ import InvestigatorList from "@/components/InvestigatorList";
 import { loadAllInvestigators } from "@/utils/investigatorStorage";
 import { Investigator } from "@/types/Investigator";
 import CreateInvestigatorModal from "./creation/CreateInvestigatorModal";
+import ThemedSafeAreaView from "@/components/ui/ThemedSafeAreaView";
 
 type InvestigatorItem = {
   id: string;
@@ -42,22 +42,20 @@ export default function Index() {
   }
 
   return (
-    <SafeAreaView style={[styles.container, containerThemeStyle]}>
+    <ThemedSafeAreaView style={[styles.container, containerThemeStyle]}>
       <ThemedText style={{marginTop: 20, fontSize: 27, textAlign: "center"}}>Welcome to the Cthulhu Character Creator App!</ThemedText>
       <InvestigatorList investigators={investigators} />      
       <TouchableOpacity style={[styles.newCharButton]} onPress={() => setModalVisible(true)}>
-        <ThemedText>Create New Investigator</ThemedText>
+        <ThemedText style={{fontWeight: 'bold'}}>Create New Investigator</ThemedText>
       </TouchableOpacity>
       <CreateInvestigatorModal visible={modalVisible} onClose={() => setModalVisible(false)} />
-    </SafeAreaView>
+    </ThemedSafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
   },
   lightThemeContainer: {
     backgroundColor: "#dee4e7",
@@ -66,9 +64,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#242c40",
   },
   newCharButton: {
+    alignSelf: "center",
+    position: 'absolute',
+    bottom: 10,
     backgroundColor: "#00cc66",
     padding: 10,
-    margin: 30,
     borderRadius: 5,
     justifyContent: "center",
     alignItems: "center",

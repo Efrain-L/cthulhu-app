@@ -19,7 +19,6 @@ export default function InvestigatorList(props: {investigators:  InvestigatorIte
         const imagePath = item.investigator.details.imagePath;
     
         const onPress = () => {
-            //console.log(`Investigator ${name} path: ${imagePath}`);
             router.push({ pathname: "/details", params: { investigatorJSON: JSON.stringify(item.investigator) } });
         }
         
@@ -35,11 +34,10 @@ export default function InvestigatorList(props: {investigators:  InvestigatorIte
             keyExtractor={(item) => item.id}
             itemLayoutAnimation={LinearTransition}
             style={styles.list}
+            scrollEnabled={true}
         />
     )
 }
-
-
 
 const styles = StyleSheet.create({
     list: {
