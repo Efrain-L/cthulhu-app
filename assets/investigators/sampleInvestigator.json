@@ -38,70 +38,70 @@
       "damageBonus": "0"
     },
     "skills": {
-      "accounting": 5,
-      "anthropology": 1,
-      "appraise": 10,
-      "archaeology": 15,
-      "artCraft": {
-        "default": 5,
-        "photography": 50
+      "Accounting": 5,
+      "Anthropology": 1,
+      "Appraise": 10,
+      "Archaeology": 15,
+      "Art/Craft": {
+        "Default": 5,
+        "Photography": 50
       },
-      "charm": 30,
-      "climb": 20,
-      "creditRating": 40,
-      "cthulhuMythos": 0,
-      "disguise": 25,
-      "dodge": 35,
-      "driveAuto": 20,
-      "electricalRepair": 10,
-      "fastTalk": 50,
-      "fighting": {
-        "brawl": 40
+      "Charm": 30,
+      "Climb": 20,
+      "Credit Rating": 40,
+      "Cthulhu Mythos": 0,
+      "Disguise": 25,
+      "Dodge": 35,
+      "Drive Auto": 20,
+      "Electrical Repair": 10,
+      "Fast Talk": 50,
+      "Fighting": {
+        "Brawl": 40
       },
-      "firearms": {
-        "handgun": 50,
-        "rifleShotgun": 25
+      "Firearms": {
+        "Handgun": 50,
+        "Rifle/Shotgun": 25
       },
-      "firstAid": 30,
-      "history": 40,
-      "intimidate": 20,
-      "jump": 25,
-      "languageOther": {
-        "default": 1,
-        "french": 30
+      "First Aid": 30,
+      "History": 40,
+      "Intimidate": 20,
+      "Jump": 25,
+      "Language (Other)": {
+        "Default": 1,
+        "French": 30
       },
-      "languageOwn": 75,
-      "law": 10,
-      "libraryUse": 50,
-      "listen": 40,
-      "locksmith": 15,
-      "mechanicalRepair": 20,
-      "medicine": 10,
-      "naturalWorld": 25,
-      "navigate": 15,
-      "occult": 20,
-      "persuade": 45,
-      "pilot": {
-        "default": 1,
-        "airplane": 25
+      "Language (Own)": 75,
+      "Law": 10,
+      "Library Use": 50,
+      "Listen": 40,
+      "Locksmith": 15,
+      "Mechanical Repair": 20,
+      "Medicine": 10,
+      "Natural World": 25,
+      "Navigate": 15,
+      "Occult": 20,
+      "Persuade": 45,
+      "Pilot": {
+        "Default": 1,
+        "Airplane": 25
       },
-      "psychoanalysis": 5,
-      "psychology": 40,
-      "ride": 10,
-      "science": {
-        "default": 1,
-        "chemistry": 30
+      "Psychoanalysis": 5,
+      "Psychology": 40,
+      "Ride": 10,
+      "Science": {
+        "Default": 1,
+        "Chemistry": 30
       },
-      "sleightOfHand": 10,
-      "spotHidden": 50,
-      "stealth": 35,
-      "survival": {
-        "default": 10,
-        "desert": 20
+      "Sleight of Hand": 10,
+      "Spot Hidden": 50,
+      "Stealth": 35,
+      "Survival": {
+        "Default": 10,
+        "Desert": 20
       },
-      "swim": 25,
-      "throw": 15,
-      "track": 20
+      "Swim": 25,
+      "Throw": 15,
+      "Track": 20
     },
     "combat": [
       {
