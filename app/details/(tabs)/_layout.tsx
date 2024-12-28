@@ -2,7 +2,6 @@ import { useLocalSearchParams } from "expo-router";
 import { Tabs } from "expo-router";
 import InvestigatorProvider from "@/contexts/InvestigatorContext";
 import { StyleSheet, useColorScheme } from "react-native";
-import { act } from "react";
 
 export default function DetailsTabLayout() {
   const colorScheme = useColorScheme();
