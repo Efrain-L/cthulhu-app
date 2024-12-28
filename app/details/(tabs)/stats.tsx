@@ -11,11 +11,11 @@ export default function InvestigatorStats() {
     const investigator = useInvestigator();
 
     if (!investigator) {
-            return (
-                <ThemedView style={styles.container}>
-                    <ThemedText style={styles.text}>Investigator data was not imported correctly.</ThemedText>
-                </ThemedView>
-            );
+        return (
+            <ThemedView style={styles.container}>
+                <ThemedText style={styles.text}>Investigator data was not imported correctly.</ThemedText>
+            </ThemedView>
+        );
     }
 
     const stats = investigator.characteristics;
