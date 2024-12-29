@@ -7,7 +7,7 @@ import StatsBar from '@/components/StatsBar';
 import SkillList from '@/components/SkillList';
 import ThemedView from '@/components/ui/ThemedView';
 
-export default function InvestigatorStats() {
+export default function InvestigatorSkills() {
     const investigator = useInvestigator();
 
     if (!investigator) {

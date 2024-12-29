@@ -25,7 +25,7 @@ export default function DetailsTabLayout() {
         }}
       >
         <Tabs.Screen name="bio" options={{ title: 'Bio' }}/>
-        <Tabs.Screen name="stats" options={{ title: 'Stats' }}/>
+        <Tabs.Screen name="skills" options={{ title: 'Skills' }}/>
       </Tabs>
     </InvestigatorProvider>
   );
