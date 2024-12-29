@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import Animated, { LinearTransition } from "react-native-reanimated";
+import Animated, { FadeIn } from "react-native-reanimated";
 
 import { Investigator } from "@/types/Investigator";
 import InvestigatorListItem from "@/components/InvestigatorListItem";
@@ -10,33 +10,34 @@ type InvestigatorItem = {
     investigator: Investigator;
 };
 
-export default function InvestigatorList(props: {investigators:  InvestigatorItem[]}) {
+export default function InvestigatorList(props: { investigators: InvestigatorItem[] }) {
     const router = useRouter();
 
-    const renderItem = ({item}: {item: InvestigatorItem}) => {
+    const renderItem = ({ item, index }: { item: InvestigatorItem; index: number }) => {
         const name = item.investigator.details.name;
         const occupation = item.investigator.details.occupation;
         const imagePath = item.investigator.details.imagePath;
-    
+
         const onPress = () => {
             router.push({ pathname: "/details", params: { investigatorJSON: JSON.stringify(item.investigator) } });
-        }
-        
+        };
+
         return (
-            <InvestigatorListItem name={name} occupation={occupation} imagePath={imagePath} onPress={onPress}/>
+            <Animated.View entering={FadeIn.delay(index * 100)}>
+                <InvestigatorListItem name={name} occupation={occupation} imagePath={imagePath} onPress={onPress} />
+            </Animated.View>
         );
     };
 
     return (
         <Animated.FlatList
-            data={props.investigators} 
-            renderItem={renderItem} 
+            data={props.investigators}
+            renderItem={renderItem}
             keyExtractor={(item) => item.id}
-            itemLayoutAnimation={LinearTransition}
             style={styles.list}
             scrollEnabled={true}
         />
-    )
+    );
 }
 
 const styles = StyleSheet.create({
