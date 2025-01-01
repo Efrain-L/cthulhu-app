@@ -26,7 +26,7 @@ export default function PressableSkillCheck({ style, children, skillName, skillV
             setResult('Hard Success');
         } 
         else if (number <= skillValue) {
-            setResult('Normal Success');
+            setResult('Regular Success');
         }
         else if (number == 100) {
             setResult('Fumble');
@@ -78,7 +78,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#00cc66',
         borderRadius: 20,
         alignItems: 'center',
-        justifyContent: 'space-evenly'
+        justifyContent: 'space-evenly',
+        borderWidth: 1,
+        borderColor: 'black',
     },
     modalText: {
         marginBottom: 15,

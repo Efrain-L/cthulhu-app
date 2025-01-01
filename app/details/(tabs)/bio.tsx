@@ -2,7 +2,7 @@ import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView';
 import ThemedText from '@/components/ui/ThemedText';
 import React from 'react';
 import { StyleSheet, Image, ScrollView } from 'react-native';
-import { useInvestigator } from '../../../hooks/useInvestigator';
+import { useInvestigator } from '@/hooks/useInvestigator';
 import ThemedTextInput from '@/components/ui/ThemedTextInput';
 
 export default function InvestigatorBio() {
@@ -16,74 +16,63 @@ export default function InvestigatorBio() {
         );
     }
 
-    const { name, occupation, age, pronouns, residence, birthplace, imagePath } = investigator.details;
-    const {
-        personalDescription,
-        ideologyBeliefs,
-        significantPeople,
-        meaningfulLocations,
-        treasuredPossessions,
-        traits,
-        injuriesScars,
-        phobiasManias,
-        arcaneTomesSpells,
-        encountersWithStrangeEntities
-    } = investigator.backstory;
+    const details = investigator.details;
+    const backstory = investigator.backstory;
 
     return (
         <ThemedSafeAreaView style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollContainer}>
 
                 <ThemedText style={styles.heading}>Investigator Bio</ThemedText>
-                <Image source={imagePath} style={styles.image} />
+                <Image source={details.imagePath} style={styles.image} />
                 
                 <ThemedText style={styles.subHeading}>Name</ThemedText>
-                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={name} />
+                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={details.name} />
                 
                 <ThemedText style={styles.subHeading}>Pronouns</ThemedText>
-                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={pronouns} />
+                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={details.pronouns} />
                 
                 <ThemedText style={styles.subHeading}>Occupation</ThemedText>
-                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={occupation} />
+                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={details.occupation} />
                 
                 <ThemedText style={styles.subHeading}>Age</ThemedText>
-                <ThemedTextInput style={styles.text} value={`${age}`} numeric/>
+                <ThemedTextInput style={styles.text} value={`${details.age}`} numeric/>
                 
                 <ThemedText style={styles.subHeading}>Residence</ThemedText>
-                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={residence} />
+                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={details.residence} />
                 
                 <ThemedText style={styles.subHeading}>Birthplace</ThemedText>
-                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={birthplace} />
+                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={details.birthplace} />
                 
                 <ThemedText style={styles.subHeading}>Personal Description</ThemedText>
-                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={personalDescription} />
+                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={backstory.personalDescription} />
                 
                 <ThemedText style={styles.subHeading}>Ideology/Beliefs</ThemedText>
-                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={ideologyBeliefs} />
+                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={backstory.ideologyBeliefs} />
                 
                 <ThemedText style={styles.subHeading}>Significant People</ThemedText>
-                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={significantPeople} />
+                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={backstory.significantPeople} />
                 
                 <ThemedText style={styles.subHeading}>Meaningful Locations</ThemedText>
-                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={meaningfulLocations} />
+                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={backstory.meaningfulLocations} />
                 
                 <ThemedText style={styles.subHeading}>Treasured Possessions</ThemedText>
-                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={treasuredPossessions} />
+                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={backstory.treasuredPossessions} />
                 
                 <ThemedText style={styles.subHeading}>Traits</ThemedText>
-                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={traits} />
+                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={backstory.traits} />
                 
                 <ThemedText style={styles.subHeading}>Injuries/Scars</ThemedText>
-                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={injuriesScars} />
+                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={backstory.injuriesScars} />
                 
                 <ThemedText style={styles.subHeading}>Phobias/Manias</ThemedText>
-                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={phobiasManias} />
+                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={backstory.phobiasManias} />
                 
                 <ThemedText style={styles.subHeading}>Arcane Tomes/Spells</ThemedText>
-                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={arcaneTomesSpells} />
+                <ThemedTextInput style={styles.text} multiline numberOfLines={4} value={backstory.arcaneTomesSpells} />
                 
                 <ThemedText style={styles.subHeading}>Encounters with Strange Entities</ThemedText>
-                <ThemedTextInput style={styles.text} multiline={true} value={encountersWithStrangeEntities} />
+                <ThemedTextInput style={styles.text} multiline={true} value={backstory.encountersWithStrangeEntities} />
                 
             </ScrollView>
         </ThemedSafeAreaView>

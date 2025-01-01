@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import ThemedText from '@/components/ui/ThemedText';
 import SubSkillsList from '@/components/SubSkillList';
 import PressableSkillCheck from '@/components/ui/PressableSkillCheck';
@@ -23,7 +23,9 @@ export default function SkillListItem({ skillName, skillValue }: SkillListItemPr
     return (
         <View style={styles.container}>
             <View style={styles.skillRow}>
-                <ThemedText style={styles.skillLabel}>{skillName}</ThemedText>
+                <TouchableOpacity>
+                    <ThemedText style={styles.skillLabel}>{skillName}</ThemedText>
+                </TouchableOpacity>
                 {valueToDisplay !== null ? (
                     <PressableSkillCheck skillName={skillName} skillValue={valueToDisplay} style={styles.skillButton}>
                         <ThemedText style={styles.skillValue}>{valueToDisplay}%</ThemedText>

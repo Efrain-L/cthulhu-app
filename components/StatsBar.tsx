@@ -1,6 +1,7 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import ThemedView from '@/components/ui/ThemedView';
 import ThemedText from '@/components/ui/ThemedText';
+import PressableSkillCheck from '@/components/ui/PressableSkillCheck';
 
 type StatsProps = {
     stats: {
@@ -17,13 +18,21 @@ type StatsProps = {
 
 export default function StatsBar({ stats }: StatsProps) {
     return (
-        <ThemedView style={styles.statsBar}>
-            {Object.entries(stats).map(([key, value]) => (
-                <View key={key} style={styles.statContainer}>
-                    <ThemedText style={styles.statLabel}>{key}</ThemedText>
-                    <ThemedText style={styles.statValue}>{value}</ThemedText>
-                </View>
-            ))}
+        <ThemedView>
+            <View style={styles.statsBar}>
+                {Object.entries(stats).map(([key, _value]) => (
+                    <TouchableOpacity key={key} style={styles.statContainer}>
+                        <ThemedText style={styles.statLabelText}>{key}</ThemedText>
+                    </TouchableOpacity>
+                ))}
+            </View>
+            <View style={styles.statsBar}>
+                {Object.entries(stats).map(([key, value]) => (
+                    <PressableSkillCheck key={key} style={styles.statContainer} skillName={key} skillValue={value}>
+                        <ThemedText style={styles.statValueText}>{value}</ThemedText>
+                    </PressableSkillCheck>
+                ))}
+            </View>
         </ThemedView>
     );
 };
@@ -33,19 +42,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        padding: 10,
-        borderBottomWidth: 5,
+        padding: 5,
+        borderBottomWidth: 3,
         borderBottomColor: '#00cc66'
     },
     statContainer: {
-        flexDirection: 'column',
-        alignItems: 'center',
+        margin: 10,
     },
-    statLabel: {
+    statLabelText: {
         fontSize: 14,
         fontWeight: 'bold',
     },
-    statValue: {
+    statValueText: {
         fontSize: 14,
     },
 });

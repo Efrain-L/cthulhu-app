@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { TextInput, TextInputProps, StyleSheet, useColorScheme } from 'react-native';
 
+const DEFAULT_HEIGHT = 40;
+
 interface ThemedTextInputProps extends TextInputProps {
     numeric?: boolean;
 }
@@ -20,7 +22,7 @@ export default function ThemedNumericInput({
     const placeholderTextColor = colorScheme === 'dark' ? 'gray' : 'darkgray';
 
     const [text, setText] = useState(value || '');
-    const [height, setHeight] = useState(40); // default height
+    const [height, setHeight] = useState(DEFAULT_HEIGHT);
     
     const handleChangeText = (inputText: string) => {
         const processedText = numeric ? inputText.replace(/[^0-9]/g, '') : inputText;
@@ -43,7 +45,7 @@ export default function ThemedNumericInput({
                 style,
                 textStyle,
                 borderThemeStyle,
-                { height: Math.max(40, height) },
+                { height: Math.max(DEFAULT_HEIGHT, height) },
             ]}
             placeholder={placeholder}
             placeholderTextColor={placeholderTextColor}

@@ -12,9 +12,9 @@ export default function InvestigatorSkills() {
 
     if (!investigator) {
         return (
-            <ThemedView style={styles.container}>
+            <ThemedSafeAreaView style={styles.container}>
                 <ThemedText style={styles.textHeading}>Investigator data could not be read.</ThemedText>
-            </ThemedView>
+            </ThemedSafeAreaView>
         );
     }
 
@@ -24,7 +24,7 @@ export default function InvestigatorSkills() {
         <ThemedSafeAreaView style={styles.container}>
             <StatsBar stats={stats} />
             <ThemedText style={styles.textHeading}>Investigator Skills</ThemedText>
-            <Text style={styles.textSubheading}>Chance of Success: (Normal | Hard | Extreme)</Text>
+            <Text style={styles.textSubheading}>Chance of Success: (Regular | Hard | Extreme)</Text>
             <SkillList investigator={investigator} />
         </ThemedSafeAreaView>
     );

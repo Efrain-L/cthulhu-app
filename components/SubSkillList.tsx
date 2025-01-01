@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Touchable, TouchableOpacity, View } from 'react-native';
 import ThemedText from '@/components/ui/ThemedText';
 import PressableSkillCheck from './ui/PressableSkillCheck';
 
@@ -13,7 +13,9 @@ export default function SubSkillsList({ subSkills }: SubskillsListProps) {
                 const skillValue = subSkills[skillName];
                 return (
                     <View key={skillName} style={styles.subskillRow}>
-                        <ThemedText style={styles.subskillLabel}>{skillName}</ThemedText>
+                        <TouchableOpacity>
+                            <ThemedText style={styles.subskillLabel}>{skillName}</ThemedText>
+                        </TouchableOpacity>
                         <PressableSkillCheck skillName={skillName} skillValue={skillValue} style={styles.skillButton}>
                             <ThemedText style={styles.skillValue}>{skillValue}%</ThemedText>
                             <ThemedText style={styles.skillValue}>|</ThemedText>
