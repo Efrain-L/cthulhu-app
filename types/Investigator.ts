@@ -1,4 +1,5 @@
 export interface Investigator {
+    fileName: string;
     details: {
       name: string;
       occupation: string;

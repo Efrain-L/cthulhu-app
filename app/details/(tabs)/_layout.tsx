@@ -10,6 +10,7 @@ export default function DetailsTabLayout() {
 
   const { investigatorJSON } = useLocalSearchParams();
   const investigator = investigatorJSON ? JSON.parse(investigatorJSON as string) : null;
+  console.log(investigator.fileName);
 
   return (
     <InvestigatorProvider investigator={investigator}>

@@ -6,8 +6,8 @@ import ThemedText from "@/components/ui/ThemedText";
 import InvestigatorList from "@/components/InvestigatorList";
 import { loadAllInvestigators } from "@/utils/investigatorStorage";
 import { Investigator } from "@/types/Investigator";
-import CreateInvestigatorModal from "./creation/CreateInvestigatorModal";
 import ThemedSafeAreaView from "@/components/ui/ThemedSafeAreaView";
+import { router } from "expo-router";
 
 type InvestigatorItem = {
   id: string;
@@ -17,7 +17,6 @@ type InvestigatorItem = {
 export default function Index() {
   const [investigators, setInvestigators] = useState<InvestigatorItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [modalVisible, setModalVisible] = useState(false);
 
   const colorScheme = useColorScheme();
   const containerThemeStyle = colorScheme === 'dark' ? styles.darkThemeContainer : styles.lightThemeContainer;
@@ -45,10 +44,9 @@ export default function Index() {
     <ThemedSafeAreaView style={[styles.container, containerThemeStyle]}>
       <ThemedText style={{marginTop: 20, fontSize: 27, textAlign: "center"}}>Welcome to the Cthulhu Character Creator App!</ThemedText>
       <InvestigatorList investigators={investigators} />      
-      <TouchableOpacity style={[styles.newCharButton]} onPress={() => setModalVisible(true)}>
+      <TouchableOpacity style={[styles.newCharButton]} onPress={() => { router.push({ pathname: "/creation" }) }}>
         <ThemedText style={{fontWeight: 'bold'}}>Create New Investigator</ThemedText>
       </TouchableOpacity>
-      <CreateInvestigatorModal visible={modalVisible} onClose={() => setModalVisible(false)} />
     </ThemedSafeAreaView>
   );
 }

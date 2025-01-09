@@ -36,7 +36,7 @@ export const loadInvestigator = async (fileName: string): Promise<Investigator> 
     }
 
     const content = await FileSystem.readAsStringAsync(filePath);
-    const investigator: Investigator = JSON.parse(content);
+    const investigator: Investigator = {fileName: fileName, ...JSON.parse(content) };
 
     return investigator;
   } catch (error) {

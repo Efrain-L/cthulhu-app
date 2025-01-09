@@ -12,6 +12,7 @@ export default function RootLayout() {
       <Stack screenOptions={{ headerShown: false  }}>
         <Stack.Screen name="index" />
         <Stack.Screen name="details" options={{presentation: 'containedTransparentModal', animation: 'slide_from_left'}}/>
+        <Stack.Screen name="creation" options={{presentation: 'containedTransparentModal', animation: 'slide_from_bottom'}}/>
       </Stack>
     </View>
   );
