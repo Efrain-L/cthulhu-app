@@ -21,6 +21,10 @@ export default function CreateInvestigatorDetails() {
             alert("Name and Age are required fields");
             return;
         }
+        if (parseInt(age) < 15) {
+            alert("Minimum investigator age is 15");
+            return;
+        }
         if (investigator) {
             investigator.details.name = name;
             investigator.details.age = parseInt(age);
