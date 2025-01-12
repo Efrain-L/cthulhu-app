@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   newCharButton: {
     alignSelf: "center",
     position: 'absolute',
-    bottom: 10,
+    bottom: 15,
     backgroundColor: "#00cc66",
     padding: 10,
     borderRadius: 5,
