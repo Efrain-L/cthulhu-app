@@ -43,7 +43,7 @@ export default function QuickFireStats() {
             investigator.characteristics.INT = parseInt(data[5].text);
             investigator.characteristics.POW = parseInt(data[6].text);
             investigator.characteristics.EDU = parseInt(data[7].text);
-            router.navigate("/creation/occupation");
+            router.navigate("/creation/modifiers");
         }
     }
 
