@@ -27,8 +27,8 @@ export default function CreateInvestigatorDetails() {
             investigator.details.pronouns = pronouns;
             investigator.details.residence = residence;
             investigator.details.birthplace = birthplace;
+            router.navigate("/creation/statmethod");
         }
-        router.navigate("/creation/statmethod");
     }
 
     return (

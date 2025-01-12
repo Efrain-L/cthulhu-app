@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity, Image} from "react-native";
+import { StyleSheet, TouchableOpacity, Image, View} from "react-native";
 
 import ThemedText from "@/components/ui/ThemedText";
 import ThemedView from "@/components/ui/ThemedView";
@@ -13,10 +13,10 @@ type InvestigatorItemProps = {
 export default function InvestigatorListItem({ name, occupation, imagePath, onPress}: InvestigatorItemProps) {
     return( 
       <TouchableOpacity style={styles.item} onPress={onPress}>
-        <ThemedView style={styles.imageContainer}>
+        <View style={styles.imageContainer}>
             {/* There may be a compiler error here, but running with expo start still works /> */}
             <Image source={imagePath} style={styles.image} />
-        </ThemedView>
+        </View>
         <ThemedView style={{flex: 1}}>
             <ThemedText style={{fontWeight: 'bold'}}>Investigator's Name:</ThemedText>
             <ThemedText>{name}</ThemedText>

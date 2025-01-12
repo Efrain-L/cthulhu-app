@@ -24,7 +24,7 @@ export default function SelectStatMethod() {
             <TouchableOpacity style={styles.button} onPress={() => {router.navigate("/creation/(stats)/pointbuy")}}>
                 <ThemedText style={styles.buttonText}>Point Buy</ThemedText>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => {router.back()}}>
+            <TouchableOpacity style={styles.backButton} onPress={() => {router.back()}}>
                 <ThemedText>Back</ThemedText>
             </TouchableOpacity>
         </ThemedSafeAreaView>
@@ -53,5 +53,10 @@ const styles = StyleSheet.create({
     buttonText: {
         textAlign: 'center',
         fontWeight: 'bold',
+    },
+    backButton: {
+        borderRadius: 5,
+        backgroundColor: "#00cc66",
+        padding: 10,
     }
 });
