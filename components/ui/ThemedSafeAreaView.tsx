@@ -5,7 +5,7 @@ export default function ThemedSafeAreaView( { style, children }: ViewProps) {
     const backgroundStyle = colorScheme === 'dark' ? styles.darkView : styles.lightView;
 
     return (
-        <SafeAreaView style={[ style, backgroundStyle ]}>
+        <SafeAreaView style={[{flex: 1}, style, backgroundStyle ]}>
             {children}
         </SafeAreaView>
     );
