@@ -16,12 +16,21 @@ export default function ModifierUpdate() {
             </ThemedSafeAreaView>
         );
     }
+    const [statPoints, setStatPoints] = useState({
+        "STR": 0,
+        "CON": 0,
+        "SIZ": 0,
+        "DEX": 0,
+        "APP": 0,
+        "INT": 0,
+        "POW": 0,
+        "EDU": 0,
+    });
 
     const age = investigator.details.age;
     useEffect(() => {
         if (age <= 19) {
-            setDeductPoints(5);
-            setMaxDeductPoints(5);
+            setRemainingPoints(5);
         } else if (age <= 39) {
             // Add logic for this age group if necessary
         } else if (age <= 49) {
@@ -37,69 +46,74 @@ export default function ModifierUpdate() {
         }
     }, [age]);
 
-    const [deductPoints, setDeductPoints] = useState(0);
-    const [maxDeductPoints, setMaxDeductPoints] = useState(0);
-    const [characteristics, setCharacteristics] = useState({
-        "STR": investigator.characteristics.STR,
-        "CON": investigator.characteristics.CON,
-        "SIZ": investigator.characteristics.SIZ,
-        "DEX": investigator.characteristics.DEX,
-        "APP": investigator.characteristics.APP,
-        "INT": investigator.characteristics.INT,
-        "POW": investigator.characteristics.POW,
-        "EDU": investigator.characteristics.EDU,
-    });
+    const [maxPoints, setMaxPoints] = useState(0);
+    const [remainingPoints, setRemainingPoints] = useState(0);
+    const pointsAllocated = Object.values(statPoints).reduce((a, b) => a + b, 0);
+    
 
     const StatDeductRow = ({ stat }: { stat: CharacteristicKey }) => {
-        const updateStat = (value: number) => {
-            setCharacteristics((prev) => {
-                const updatedStat = Math.max(0, (prev[stat] || 0) + value);
-                return { ...prev, [stat]: updatedStat };
-            });
-            setDeductPoints((prev) => Math.max(0, prev + value)); // Update deduct points
+        const allocate = (delta: number) => {
+            return remainingPoints - delta >= 0;
         };
+        const deallocate = (stat: CharacteristicKey, delta: number) => {
+            return statPoints[stat] >= delta;
+        }
+        const allocatePoints = (stat: CharacteristicKey, delta: number) => {
+            // if there are enough points remaining, subtract from remaining points
+            if (allocate(delta)) {
+                setStatPoints({ ...statPoints, [stat]: statPoints[stat] + delta });
+                setRemainingPoints(remainingPoints - delta);
+            }
+        }
+        const deallocatePoints = (stat: CharacteristicKey, delta: number) => {
+            if (deallocate(stat, delta)) {
+                setStatPoints({ ...statPoints, [stat]: statPoints[stat] - delta });
+                setRemainingPoints(remainingPoints + delta);
+            }
+        }
+
         return (
             <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', width: 400 }}>
-                <ThemedText style={{fontWeight: "bold", width: 60, paddingTop: 10}}>{stat}: {characteristics[stat]}</ThemedText>
+                <ThemedText style={{fontWeight: "bold", width: 60, paddingTop: 10}}>{stat}: {investigator.characteristics[stat]-statPoints[stat]}</ThemedText>
                 <TouchableOpacity
-                    style={[styles.deductButton, {opacity: deductPoints - 10 < 0 || characteristics[stat] <= 0 ? 0.5 : 1}]}
-                    onPress={() => updateStat(-10)}
-                    disabled={deductPoints - 10 < 0 || characteristics[stat] <= 0}
+                    style={[styles.deductButton, {opacity: !allocate(10) ? 0.5 : 1}]}
+                    onPress={() => allocatePoints(stat, 10)}
+                    disabled={!allocate(10)}
                 >
                     <ThemedText>-10</ThemedText>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    style={[styles.deductButton, {opacity: deductPoints - 5 < 0 || characteristics[stat] <= 0 ? 0.5 : 1}]}
-                    onPress={() => updateStat(-5)}
-                    disabled={deductPoints - 5 < 0 || characteristics[stat] <= 0}
+                    style={[styles.deductButton, {opacity: !allocate(5) ? 0.5 : 1}]}
+                    onPress={() => allocatePoints(stat, 5)}
+                    disabled={!allocate(5)}
                 >
                     <ThemedText>-5</ThemedText>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    style={[styles.deductButton, {opacity: deductPoints - 1 < 0 || characteristics[stat] <= 0 ? 0.5 : 1}]}
-                    onPress={() => updateStat(-1)}
-                    disabled={deductPoints - 1 < 0 || characteristics[stat] <= 0}
+                    style={[styles.deductButton, {opacity: !allocate(1) ? 0.5 : 1}]}
+                    onPress={() => allocatePoints(stat, 1)}
+                    disabled={!allocate(1)}
                 >
                     <ThemedText>-1</ThemedText>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    style={[styles.deductButton, {opacity: deductPoints + 1 > maxDeductPoints ? 0.5 : 1}]}
-                    onPress={() => updateStat(1)}
-                    disabled={deductPoints + 1 > maxDeductPoints}
+                    style={[styles.deductButton, {opacity: !deallocate(stat, 1) ? 0.5 : 1}]}
+                    onPress={() => deallocatePoints(stat, 1)}
+                    disabled={!deallocate(stat, 1)}
                 >
                     <ThemedText>+1</ThemedText>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    style={[styles.deductButton, {opacity: deductPoints + 5 > maxDeductPoints ? 0.5 : 1}]}
-                    onPress={() => updateStat(5)}
-                    disabled={deductPoints + 5 > maxDeductPoints}
+                    style={[styles.deductButton, {opacity: !deallocate(stat, 5) ? 0.5 : 1}]}
+                    onPress={() => deallocatePoints(stat, 5)}
+                    disabled={!deallocate(stat, 5)}
                 >
                     <ThemedText>+5</ThemedText>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    style={[styles.deductButton, {opacity: deductPoints + 10 > maxDeductPoints ? 0.5 : 1}]}
-                    onPress={() => updateStat(10)}
-                    disabled={deductPoints + 10 > maxDeductPoints}
+                    style={[styles.deductButton, {opacity: !deallocate(stat, 10) ? 0.5 : 1}]}
+                    onPress={() => deallocatePoints(stat, 10)}
+                    disabled={!deallocate(stat, 10)}
                 >
                     <ThemedText>+10</ThemedText>
                 </TouchableOpacity>
@@ -112,7 +126,7 @@ export default function ModifierUpdate() {
             <ThemedView style={styles.modifyContainer}>
                 <ThemedText style={{fontWeight: "bold"}}>5 points must be deducted from EDU.</ThemedText>
                 <ThemedText style={{fontWeight: "bold"}}>Luck will be rolled twice</ThemedText>
-                <ThemedText style={{fontWeight: "bold"}}>Deduct {deductPoints} from STR, and/or SIZ:</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}>Deduct {remainingPoints} from STR, and/or SIZ:</ThemedText>
                 <StatDeductRow stat="STR"/>
                 <StatDeductRow stat="SIZ"/>
             </ThemedView>
