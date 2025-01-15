@@ -9,6 +9,7 @@ import DraggableFlatList, {
 import ThemedView from "@/components/ui/ThemedView";
 import { router } from "expo-router";
 import useInvestigator from "@/hooks/useInvestigator";
+import NavButtons from "@/components/NavButtons";
 
 type StatItem = {
     text: string;
@@ -96,14 +97,7 @@ export default function QuickFireStats() {
                     renderItem={renderItem}
                 />
             </View>
-            <View style={{flexDirection: 'row', justifyContent: 'space-between', width:200}}>
-                <TouchableOpacity style={styles.button} onPress={() => {router.back()}}>
-                    <ThemedText>Back</ThemedText>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => {saveStats();}}>
-                    <ThemedText>Next</ThemedText>
-                </TouchableOpacity>
-            </View>
+            <NavButtons onPressBack={() => router.back()} onPressNext={saveStats} />
         </ThemedSafeAreaView>
     );
 }

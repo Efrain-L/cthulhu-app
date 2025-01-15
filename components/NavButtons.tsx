@@ -1,13 +1,14 @@
 import { TouchableOpacity, View, StyleSheet } from "react-native";
 import ThemedText from "./ui/ThemedText";
 
+
 type NavButtonsProps = {
-    disableNext: boolean;
+    disableNext?: boolean;
     onPressBack: () => void;
     onPressNext: () => void;
 };
 
-export default function NavButtons({ disableNext, onPressBack, onPressNext }: NavButtonsProps) {
+export default function NavButtons({ disableNext=false, onPressBack, onPressNext }: NavButtonsProps) {
     return (
         <View style={{flexDirection: 'row', justifyContent: 'space-between', width:200, marginTop: 20}}>
                 <TouchableOpacity style={styles.navButton} onPress={onPressBack}>

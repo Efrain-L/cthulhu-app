@@ -36,7 +36,7 @@ export default function StatsOverview() {
                 <ThemedText>Build: {investigator.attributes.build}</ThemedText>
                 <ThemedText>Damage Bonus: {investigator.attributes.damageBonus}</ThemedText>
             </View>
-            <NavButtons disableNext={false} onPressBack={() => router.back()} onPressNext={() => {}} />
+            <NavButtons onPressBack={() => router.back()} onPressNext={() => router.navigate("/creation/occupation")} />
         </ThemedSafeAreaView>
     );
 };
