@@ -135,9 +135,9 @@ export default function ModifierUpdate() {
     const age15to19 = () => {``
         return (
             <ThemedView style={styles.modifyContainer}>
-                <ThemedText style={{fontWeight: "bold"}}><Text style={{color:  "lightgreen"}}>5</Text> points must be deducted from EDU.</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}><Text style={{color:  "#00cc66"}}>5</Text> points must be deducted from EDU.</ThemedText>
                 <ThemedText style={{fontWeight: "bold"}}>Luck will be rolled twice</ThemedText>
-                <ThemedText style={{fontWeight: "bold"}}>Deduct <Text style={{color:  "lightgreen"}}>{remainingPoints}</Text> points from STR, and/or SIZ:</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}>Deduct <Text style={{color:  "#00cc66"}}>{remainingPoints}</Text> points from STR, and/or SIZ:</ThemedText>
                 <StatDeductRow stat="STR"/>
                 <StatDeductRow stat="SIZ"/>
             </ThemedView>
@@ -162,11 +162,11 @@ export default function ModifierUpdate() {
         }, [investigator]);
         return (
             <ThemedView style={styles.modifyContainer}>
-                <ThemedText style={{fontWeight: "bold"}}>Making <Text style={{color:  "lightgreen"}}>1</Text> improvement check for EDU:</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}>Making <Text style={{color:  "#00cc66"}}>1</Text> improvement check for EDU:</ThemedText>
                 {eduCheckResults.map((result, index) => (
                     <ThemedText key={index}>
                         Rolled:{" "}
-                        <Text style={{ color: "lightgreen" }}>{result.roll}</Text>{" "}/{" "}<Text style={{ color: "lightgreen" }}>{result.newEDU-result.improvement}</Text>
+                        <Text style={{ color: "#00cc66" }}>{result.roll}</Text>{" "}/{" "}<Text style={{ color: "#00cc66" }}>{result.newEDU-result.improvement}</Text>
                         - {result.success ? `Success, EDU increased by ${result.improvement}` : "Failed, EDU remains the same"}
                     </ThemedText>
                 ))}
@@ -193,16 +193,16 @@ export default function ModifierUpdate() {
 
         return (
             <ThemedView style={styles.modifyContainer}>
-                <ThemedText style={{fontWeight: "bold"}}><Text style={{color:  "lightgreen"}}>5</Text> points must be deducted from APP</ThemedText>
-                <ThemedText style={{fontWeight: "bold"}}>Making <Text style={{color:  "lightgreen"}}>2</Text> improvement checks for EDU:</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}><Text style={{color:  "#00cc66"}}>5</Text> points must be deducted from APP</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}>Making <Text style={{color:  "#00cc66"}}>2</Text> improvement checks for EDU:</ThemedText>
                 {eduCheckResults.map((result, index) => (
                     <ThemedText key={index}>
                         Rolled:{" "}
-                        <Text style={{ color: "lightgreen" }}>{result.roll}</Text>{" "}/{" "}<Text style={{ color: "lightgreen" }}>{result.newEDU-result.improvement}</Text>
+                        <Text style={{ color: "#00cc66" }}>{result.roll}</Text>{" "}/{" "}<Text style={{ color: "#00cc66" }}>{result.newEDU-result.improvement}</Text>
                         - {result.success ? `Success, EDU increased by ${result.improvement}` : "Failed, EDU remains the same"}
                     </ThemedText>
                 ))}
-                <ThemedText style={{fontWeight: "bold"}}>Deduct <Text style={{color:  "lightgreen"}}>{remainingPoints}</Text> points from STR, CON, and/or DEX:</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}>Deduct <Text style={{color:  "#00cc66"}}>{remainingPoints}</Text> points from STR, CON, and/or DEX:</ThemedText>
                 <StatDeductRow stat="STR"/>
                 <StatDeductRow stat="CON"/>
                 <StatDeductRow stat="DEX"/>
@@ -229,16 +229,16 @@ export default function ModifierUpdate() {
 
         return (
             <ThemedView style={styles.modifyContainer}>
-                <ThemedText style={{fontWeight: "bold"}}><Text style={{color:  "lightgreen"}}>10</Text> points must be deducted from APP</ThemedText>
-                <ThemedText style={{fontWeight: "bold"}}>Making <Text style={{color:  "lightgreen"}}>3</Text> improvement checks for EDU:</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}><Text style={{color:  "#00cc66"}}>10</Text> points must be deducted from APP</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}>Making <Text style={{color:  "#00cc66"}}>3</Text> improvement checks for EDU:</ThemedText>
                 {eduCheckResults.map((result, index) => (
                     <ThemedText key={index}>
                         Rolled:{" "}
-                        <Text style={{ color: "lightgreen" }}>{result.roll}</Text>{" "}
+                        <Text style={{ color: "#00cc66" }}>{result.roll}</Text>{" "}
                         - {result.success ? `Success, EDU increased by ${result.improvement}` : "Failed, EDU remains the same"}
                     </ThemedText>
                 ))}
-                <ThemedText style={{fontWeight: "bold"}}>Deduct <Text style={{color:  "lightgreen"}}>{remainingPoints}</Text> points from STR, CON, and/or DEX:</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}>Deduct <Text style={{color:  "#00cc66"}}>{remainingPoints}</Text> points from STR, CON, and/or DEX:</ThemedText>
                 <StatDeductRow stat="STR"/>
                 <StatDeductRow stat="CON"/>
                 <StatDeductRow stat="DEX"/>
@@ -265,16 +265,16 @@ export default function ModifierUpdate() {
 
         return (
             <ThemedView style={styles.modifyContainer}>
-                <ThemedText style={{fontWeight: "bold"}}><Text style={{color:  "lightgreen"}}>15</Text>points must be deducted from APP</ThemedText>
-                <ThemedText style={{fontWeight: "bold"}}>Making <Text style={{color:  "lightgreen"}}>4</Text> improvement checks for EDU:</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}><Text style={{color:  "#00cc66"}}>15</Text>points must be deducted from APP</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}>Making <Text style={{color:  "#00cc66"}}>4</Text> improvement checks for EDU:</ThemedText>
                 {eduCheckResults.map((result, index) => (
                     <ThemedText key={index}>
                         Rolled:{" "}
-                        <Text style={{ color: "lightgreen" }}>{result.roll}</Text>{" "}
+                        <Text style={{ color: "#00cc66" }}>{result.roll}</Text>{" "}
                         - {result.success ? `Success, EDU increased by ${result.improvement}` : "Failed, EDU remains the same"}
                     </ThemedText>
                 ))}
-                <ThemedText style={{fontWeight: "bold"}}>Deduct <Text style={{color:  "lightgreen"}}>{remainingPoints}</Text> points from STR, CON, and/or DEX:</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}>Deduct <Text style={{color:  "#00cc66"}}>{remainingPoints}</Text> points from STR, CON, and/or DEX:</ThemedText>
                 <StatDeductRow stat="STR"/>
                 <StatDeductRow stat="CON"/>
                 <StatDeductRow stat="DEX"/>
@@ -301,16 +301,16 @@ export default function ModifierUpdate() {
 
         return (
             <ThemedView style={styles.modifyContainer}>
-                <ThemedText style={{fontWeight: "bold"}}><Text style={{color:  "lightgreen"}}>20</Text> points must be deducted from APP</ThemedText>
-                <ThemedText style={{fontWeight: "bold"}}>Making <Text style={{color:  "lightgreen"}}>4</Text> improvement checks for EDU:</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}><Text style={{color:  "#00cc66"}}>20</Text> points must be deducted from APP</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}>Making <Text style={{color:  "#00cc66"}}>4</Text> improvement checks for EDU:</ThemedText>
                 {eduCheckResults.map((result, index) => (
                     <ThemedText key={index}>
                         Rolled:{" "}
-                        <Text style={{ color: "lightgreen" }}>{result.roll}</Text>{" "}
+                        <Text style={{ color: "#00cc66" }}>{result.roll}</Text>{" "}
                         - {result.success ? `Success, EDU increased by ${result.improvement}` : "Failed, EDU remains the same"}
                     </ThemedText>
                 ))}
-                <ThemedText style={{fontWeight: "bold"}}>Deduct <Text style={{color:  "lightgreen"}}>{remainingPoints}</Text> points from STR, CON, and/or DEX:</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}>Deduct <Text style={{color:  "#00cc66"}}>{remainingPoints}</Text> points from STR, CON, and/or DEX:</ThemedText>
                 <StatDeductRow stat="STR"/>
                 <StatDeductRow stat="CON"/>
                 <StatDeductRow stat="DEX"/>
@@ -338,15 +338,15 @@ export default function ModifierUpdate() {
         return (
             <ThemedView style={styles.modifyContainer}>
                 <ThemedText style={{fontWeight: "bold"}}>25 points must be deducted from APP</ThemedText>
-                <ThemedText style={{fontWeight: "bold"}}>Making <Text style={{color:  "lightgreen"}}>4</Text> improvement checks for EDU:</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}>Making <Text style={{color:  "#00cc66"}}>4</Text> improvement checks for EDU:</ThemedText>
                 {eduCheckResults.map((result, index) => (
                     <ThemedText key={index}>
                         Rolled:{" "}
-                        <Text style={{ color: "lightgreen" }}>{result.roll}</Text>{" "}
+                        <Text style={{ color: "#00cc66" }}>{result.roll}</Text>{" "}
                         - {result.success ? `Success, EDU increased by ${result.improvement}` : "Failed, EDU remains the same"}
                     </ThemedText>
                 ))}
-                <ThemedText style={{fontWeight: "bold"}}>Deduct <Text style={{color: "lightgreen"}}>{remainingPoints}</Text> points from STR, CON, and/or DEX:</ThemedText>
+                <ThemedText style={{fontWeight: "bold"}}>Deduct <Text style={{color: "#00cc66"}}>{remainingPoints}</Text> points from STR, CON, and/or DEX:</ThemedText>
                 <StatDeductRow stat="STR"/>
                 <StatDeductRow stat="CON"/>
                 <StatDeductRow stat="DEX"/>
@@ -368,7 +368,7 @@ export default function ModifierUpdate() {
         <ThemedSafeAreaView style={styles.safeView}>
             <ThemedText style={styles.headerText}>Modifiers Component</ThemedText>
             <ThemedText style={{textAlign: "center", marginTop: 20}}>Your investigator's stats will undergo modifications based on their age</ThemedText>
-            <ThemedText style={{textAlign: "center", marginTop: 20}}>Investigator's Age: <Text style={{color: "lightgreen"}}>{age}</Text></ThemedText>
+            <ThemedText style={{textAlign: "center", marginTop: 20}}>Investigator's Age: <Text style={{color: "#00cc66"}}>{age}</Text></ThemedText>
             <ThemedText style={{textAlign: "center", marginTop: 20}}>Because of your investigator's age, the following modifications must be applied:</ThemedText>
             {age !== undefined && (
                 age <= 19 ? age15to19() : 
