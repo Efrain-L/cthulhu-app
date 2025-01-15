@@ -5,8 +5,9 @@ import useInvestigator from '@/hooks/useInvestigator';
 import { useEffect, useState } from 'react';
 import ThemedView from '@/components/ui/ThemedView';
 import { router } from 'expo-router';
+import NavButtons from '@/components/NavButtons';
 
-type CharacteristicKey = "STR" | "CON" | "SIZ" | "DEX" | "APP" | "INT" | "POW" | "EDU";
+type CharacteristicKey = "STR" | "CON" | "SIZ" | "DEX" | "APP" | "EDU";
 type EduRollResult = {
     success: boolean;
     roll: number;
@@ -24,7 +25,7 @@ export default function ModifierUpdate() {
         );
     }
 
-    const [statPoints, setStatPoints] = useState({"STR": 0,"CON": 0,"SIZ": 0,"DEX": 0,"APP": 0,"INT": 0,"POW": 0,"EDU": 0});
+    const [statPoints, setStatPoints] = useState({"STR": 0,"CON": 0,"SIZ": 0,"DEX": 0,"APP": 0, "EDU": 0});
     const [remainingPoints, setRemainingPoints] = useState(0);
 
     const StatDeductRow = ({ stat }: { stat: CharacteristicKey }) => {
@@ -87,18 +88,25 @@ export default function ModifierUpdate() {
         if (age !== undefined) {
             if (age <= 19) {
                 setRemainingPoints(5);
+                setStatPoints(prev => ({...prev, "EDU": 5}));
             } else if (age <= 39) {
                 setRemainingPoints(0);
+                setStatPoints(prev => ({...prev, "APP": 5}));
             } else if (age <= 49) {
                 setRemainingPoints(5);
+                setStatPoints(prev => ({...prev, "APP": 5}));
             } else if (age <= 59) {
                 setRemainingPoints(10);
+                setStatPoints(prev => ({...prev, "APP": 10}));
             } else if (age <= 69) {
                 setRemainingPoints(20);
+                setStatPoints(prev => ({...prev, "APP": 15}));
             } else if (age <= 79) {
                 setRemainingPoints(40);
+                setStatPoints(prev => ({...prev, "APP": 20}));
             } else {
                 setRemainingPoints(80);
+                setStatPoints(prev => ({...prev, "APP": 25}));
             }
         }
     }, [age]);
@@ -158,7 +166,7 @@ export default function ModifierUpdate() {
                 {eduCheckResults.map((result, index) => (
                     <ThemedText key={index}>
                         Rolled:{" "}
-                        <Text style={{ color: "lightgreen" }}>{result.roll}</Text>{" "}
+                        <Text style={{ color: "lightgreen" }}>{result.roll}</Text>{" "}/{" "}<Text style={{ color: "lightgreen" }}>{result.newEDU-result.improvement}</Text>
                         - {result.success ? `Success, EDU increased by ${result.improvement}` : "Failed, EDU remains the same"}
                     </ThemedText>
                 ))}
@@ -347,7 +355,13 @@ export default function ModifierUpdate() {
     };
 
     const saveModifiers = () => {
-
+        investigator.characteristics.STR -= statPoints.STR;
+        investigator.characteristics.CON -= statPoints.CON;
+        investigator.characteristics.SIZ -= statPoints.SIZ;
+        investigator.characteristics.DEX -= statPoints.DEX;
+        investigator.characteristics.APP -= statPoints.APP;
+        investigator.characteristics.EDU -= statPoints.EDU;
+        router.replace("/creation/statsoverview");
     };
 
     return (
@@ -364,18 +378,7 @@ export default function ModifierUpdate() {
                 age <= 69 ? age60to69() :
                 age <= 79 ? age70to79() : age80to89()
             )}
-            <View style={{flexDirection: 'row', justifyContent: 'space-between', width:200, marginTop: 20}}>
-                <TouchableOpacity style={styles.navButton} onPress={() => {router.back()}}>
-                    <ThemedText>Back</ThemedText>
-                </TouchableOpacity>
-                <TouchableOpacity 
-                    style={[styles.navButton, {opacity: remainingPoints !== 0 ? 0.5 : 1}]} 
-                    onPress={() => {}}
-                    disabled={remainingPoints !== 0}
-                >
-                    <ThemedText>Next</ThemedText>
-                </TouchableOpacity>
-            </View>
+            <NavButtons disableNext={remainingPoints !== 0} onPressBack={() => {router.back()}} onPressNext={() => {saveModifiers();}}/>
         </ThemedSafeAreaView>
     );
 };
