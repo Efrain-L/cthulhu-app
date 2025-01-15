@@ -36,7 +36,7 @@ export default function generateAttributes(investigator: Investigator) {
         startingLuck: luck,
         sanity,
         startingSanity: sanity,
-        maxSanity: sanity,
+        maxSanity: 99,
         tempInsanity: false,
         indefInsanity: false,
         majorWound: false,
