@@ -1,6 +1,6 @@
 import { Investigator } from '@/types/Investigator';
 
-const occupationData = (occupation: string, investigator: Investigator) => {
+export default function getOccupationData (occupation: string, investigator: Investigator) {
     const { STR, CON, SIZ, DEX, APP, INT, POW, EDU } = investigator.characteristics;
     switch (occupation) {
         case "Antiquarian":
@@ -179,10 +179,38 @@ const occupationData = (occupation: string, investigator: Investigator) => {
                     }
                 ]
             };
+        case "Police Officer":
+            return {
+                skillPoints: (EDU*2 + Math.max(DEX*2, STR*2)),
+                creditRating: [9, 30],
+                fixedSkills: [
+                    "Fighting (Brawl)",
+                    "Firearms",
+                    "First Aid",
+                    "Law",
+                    "Psychology",
+                    "Spot Hidden"
+                ],
+                selectSkills: [
+                    {
+                        count: 1,
+                        from: [
+                            "Charm",
+                            "Fast Talk",
+                            "Intimidate",
+                            "Persuade"
+                        ]
+                    },
+                    {
+                        count: 1,
+                        from: [
+                            "Drive Auto",
+                            "Ride"
+                        ]
+                    }
+                ]
+            };
         default:
             return {error: "Occupation not found"};
     }
-}
-
-export default occupationData;
-
+};
